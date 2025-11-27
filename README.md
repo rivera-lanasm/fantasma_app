@@ -135,8 +135,3 @@ See **[docs/WEB_APP.md](docs/WEB_APP.md)** for detailed OAuth setup instructions
 
 See **[docs/DOCKER_DEPLOYMENT.md](docs/DOCKER_DEPLOYMENT.md)** for complete deployment guide.
 
----
-
-## License
-
-Private project for Fantasma Wines.
