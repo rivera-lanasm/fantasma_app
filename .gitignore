@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+*.pyc
+
+# Google OAuth
+backend/credentials.json
+backend/token.json
+backend/old_credentials.json
+backend/old_token.json
+**/credentials*.json
+**/token*.json
+
+# API Keys and Environment
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+*.api_key
+
+# Session logs
+backend/session_log.json
+backend/feedback_log.json
+
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/.svelte-kit/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Deployment sensitive files
+*.pem
+*.key
+.ssh/
+.aws/
+
+# Generated documents
+*.docx
+!backend/templates/*.docx

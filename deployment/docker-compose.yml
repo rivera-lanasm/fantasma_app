@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: fantasma-backend
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:5000:5000"
+    volumes:
+      # Mount credentials (IMPORTANT: These must exist on the host)
+      - ./backend/credentials.json:/app/credentials.json:ro
+      - ./backend/token.json:/app/token.json:ro
+      # Mount logs directory to persist data
+      - ./backend/session_log.json:/app/session_log.json
+      - ./backend/feedback_log.json:/app/feedback_log.json
+    environment:
+      - FLASK_DEBUG=False
+    networks:
+      - fantasma-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: fantasma-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      # Mount SSL certificates from Let's Encrypt
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      # Optional: custom nginx config for SSL
+      - ./nginx-ssl.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - backend
+    networks:
+      - fantasma-network
+
+networks:
+  fantasma-network:
+    driver: bridge

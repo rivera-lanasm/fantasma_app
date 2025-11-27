@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(uv pip install:*)",
+      "Bash(python test_sheet.py:*)",
+      "Bash(source .venv/bin/activate)",
+      "Bash(python debug_replacement.py:*)",
+      "Bash(python:*)",
+      "Bash(npm create svelte@latest:*)",
+      "Bash(npx sv:*)",
+      "Bash(npm install)",
+      "Bash(source:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
