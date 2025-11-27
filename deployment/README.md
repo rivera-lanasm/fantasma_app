@@ -139,6 +139,17 @@ ssh -i ~/.ssh/fantasma-key.pem ubuntu@fantasma.mriveralanas.com "bash ~/setup-se
 claude-code config set api-key YOUR_ANTHROPIC_API_KEY
 ```
 
+### Configure Git to store GitHub credentials
+```bash
+# Stores GitHub token so you don't need to paste it each time
+git config --global credential.helper store
+```
+
+**Note:** Token will be saved to `~/.git-credentials` after first use. Next time you push/pull:
+- Enter GitHub username
+- Paste your GitHub Personal Access Token as the password
+- Git will remember it for future operations
+
 ---
 
 ## Documentation
